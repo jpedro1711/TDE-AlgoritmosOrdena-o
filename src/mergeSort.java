@@ -2,9 +2,6 @@ public class mergeSort {
     private static Integer iteracoes = 0;
     private static Integer trocas = 0;
     public int[] ordenar(int[] vetor) {
-        // [2 7 1 9]
-        // [2 7] [1 9]
-        // [2] [7] [1] [9]
         int tamanho = getTamanho(vetor);
         if (tamanho == 1) {
             return vetor;
@@ -29,13 +26,6 @@ public class mergeSort {
         primeiroVetor = ordenar(primeiroVetor);
         segundoVetor = ordenar(segundoVetor);
 
-        // [2 7 1 9]
-        // [2 7] [1 9]
-        // [2] [7] [1] [9]
-        // -----------------
-        // [2, 7] [1, 9]
-        // [1, 2, 7, 9]
-
         int tam1 = getTamanho(primeiroVetor);
         int tam2 = getTamanho(segundoVetor);
         int[] juncao = new int[tam2 + tam1];
@@ -44,12 +34,6 @@ public class mergeSort {
         int indexVetor2 = 0;
         int indiceNovoVetor = 0;
         while (indexVetor1 < tam1 && indexVetor2 < tam2) {
-            // [2 7 1 9]
-            // [2 7] [1 9]
-            // [2] [7] [1] [9]
-            // -----------------
-            // [2, 7] [1, 9]
-            // [1, 2, 7, 9]
             iteracoes++;
             if (primeiroVetor[indexVetor1] < segundoVetor[indexVetor2]) {
                 juncao[indiceNovoVetor] = primeiroVetor[indexVetor1];
@@ -64,12 +48,6 @@ public class mergeSort {
                 trocas++;
             }
         }
-        // [2 7 1 9]
-        // [2 7] [1 9]
-        // [2] [7] [1] [9]
-        // -----------------
-        // [2, 7] [1, 9]
-        // [1, 2, 7, 9]
         if (indexVetor1 < tam1) {
             for (int i = indexVetor1; i < tam1; i++) {
                 iteracoes++;
